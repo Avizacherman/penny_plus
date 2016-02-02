@@ -3,7 +3,6 @@
   "dependencies": {
     "angular": "latest",
     "angular-route": "latest",
-    "angular-cookies": "latest",
-    "ngCable": "latest"
+    "angular-cookies": "latest"
   }
 }

@@ -3,75 +3,59 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context "Built In Validators" do
     it "should only save with presence of a username" do
-
-    end
-    it "should only save with presence of a password" do
-
+      user = User.create({password: "Imawinner", password_confirmation: "Imawinner", city: "New York", state: "NY", phone: "555-555-5555", full_name: "Bob Burgerski", email: "bob@burger.com"})
+      expect(user).to_not be_valid
     end
 
-    it "should only save if the password is at least 8 characters" do
+    it "should only save with presence of a password, unless there is an access token" do
+      user = User.create({username: "Bob", password_confirmation: "Imawinner", city: "New York", state: "NY", phone: "555-555-5555", full_name: "Bob Burgerski", email: "bob@burger.com"})
+      expect(user).to_not be_valid
 
     end
 
-    it "should only save with presence of a password_confirmation" do
+    it "should require the password is at least 8 characters" do
+      user = User.create({username: "Bob", password: "Imaw", password_confirmation: "Imaw", city: "New York", state: "NY", phone: "555-555-5555", full_name: "Bob Burgerski", email: "bob@burger.com"})
+      expect(user).to_not be_valid
 
     end
+
+    it "should require presence of a password confirmation when creating a new user" do
+      user = User.create({username: "Bob", password: "Imawinner", city: "New York", state: "NY", phone: "555-555-5555", full_name: "Bob Burgerski", email: "bob@burger.com"})
+      expect(user).to_not be_valid
+
+    end
+
+    it "should require the password confirmation to match when creating a new user" do
+      user = User.create({username: "Bob", password: "Imawinner", password_confirmation: "Imaloser", city: "New York", state: "NY", phone: "555-555-5555", full_name: "Bob Burgerski", email: "bob@burger.com"})
+      expect(user).to_not be_valid
+
+    end
+
     it "should only save with if the username is unique" do
-
+      user = User.create({username: "Bob", password: "Imawinner", password_confirmation: "Imawinner", city: "New York", state: "NY", phone: "555-555-5555", full_name: "Bob Burgerski", email: "bob@burger.com"})
+      user_two = User.create({username: "Bob", password: "Imawinner", password_confirmation: "Imawinner", city: "New York", state: "NY", phone: "555-555-5555", full_name: "Bob Burgerski", email: "bob@burger.com"})
+      expect(user_two).to_not be_valid
     end
-    it "should only save with presence of a full name" do
 
+    it "should only save with presence of a full name" do
+      user = User.create({username: "Bob", password: "Imawinner", password_confirmation: "Imawinner", city: "New York", state: "NY", phone: "555-555-5555", email: "bob@burger.com"})
+      expect(user).to_not be_valid
     end
 
     it "should only save with presence of a phone number "do
-
-    end
-
-    it "should only save if the phone number is formatted in proper format" do
-
+    user = User.create({username: "Bob", password: "Imawinner", password_confirmation: "Imawinner", city: "New York", state: "NY", full_name: "Bob Burgerski", email: "bob@burger.com"})
+    expect(user).to_not be_valid
     end
 
     it "should only save with presence of an e-mail" do
-
+      user = User.create({username: "Bob", password: "Imawinner", password_confirmation: "Imawinner", city: "New York", state: "NY", phone: "555-555-5555", full_name: "Bob Burgerski"})
+      expect(user).to_not be_valid
     end
-
-    it "should only save if the e-mail is formatted in proper format" do
-
-    end
-
-
-
   end
 
-  context "Custom Validator: LocationHashValidator" do
-    it "should require location to be of the class Hash" do
-      testUser = User.create({username: "bob", password: "heyyouguys", password_confirmation: "heyyouguys", phone: "516-555-5555", email: "bob@bob.com", full_name: "bob bobson"})
-      expect testUser.to_not be_valid
-    end
-
-    it "should not allow a location hash with anything but two values" do
-      testUser = User.create({username: "bob", password: "heyyouguys", password_confirmation: "heyyouguys", phone: "516-555-5555", email: "bob@bob.com", full_name: "bob bobson"})
-      expect testUser.to_not be_valid
-    end
-
-    it "should require both a city and a state key within the location hash" do
-      testUser = User.create({username: "bob", password: "heyyouguys", password_confirmation: "heyyouguys", phone: "516-555-5555", email: "bob@bob.com", full_name: "bob bobson"})
-      expect testUser.to_not be_valid
-    end
-
-    it "should require that both city and state be of the class String" do
-      testUser = User.create({username: "bob", password: "heyyouguys", password_confirmation: "heyyouguys", phone: "516-555-5555", email: "bob@bob.com", full_name: "bob bobson"})
-      expect testUser.to_not be_valid
-    end
-
-  end
 
   context "Active Record Callbacks" do
     it "should automatically combine first_name and last_name into full_name" do
-
-    end
-
-    it "should translate lat and lng into a city and state" do
 
     end
 

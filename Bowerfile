@@ -6,4 +6,3 @@
 asset 'angular'
 asset 'angular-route'
 asset 'angular-cookies'
-asset 'ngCable'
