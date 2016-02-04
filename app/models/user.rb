@@ -12,13 +12,7 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
 
-  reverse_geocoded_by :latitude, :longitude do |record,results|
-    if geo = results.first
-      record.city    = geo.city
-      record.state = geo.state
-    end
-  end
-  before_validation :reverse_geocode
+
 
   # before_validation :reverse_geocode
   # after_validation :set_access_token

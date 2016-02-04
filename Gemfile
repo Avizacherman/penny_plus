@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
 
 #geocoding gem
-gem 'geocode'
+gem 'geokit-rails'
 
 # use PRY for console environment
 gem 'pry-rails'
