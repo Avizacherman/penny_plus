@@ -1,1 +1,3 @@
-angular.module("MainModule", [])
+"use strict";
+
+angular.module("MainModule", []);

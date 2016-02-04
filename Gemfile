@@ -14,8 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# pipeline transpiling for .es6 files
-gem 'babel-transpiler'
+
+gem 'sprockets-es6'
 
 #setup bower for front end dependencies
 gem 'bower-rails'
