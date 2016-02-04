@@ -47,6 +47,12 @@ Rails.application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
+  resources :api do
+    resources :geodatum, only: [:create, :update]
+    resources :users
+    resources :scoreboard, only: :index
+  end
+
   # Example resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
