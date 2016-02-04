@@ -1,4 +1,4 @@
 class Geodatum < ActiveRecord::Base
   belongs_to :user
-  acts_as_mapable
+  acts_as_mappable
 end
