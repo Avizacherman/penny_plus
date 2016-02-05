@@ -1,5 +1,5 @@
-angular.module('MainModule')
-  .factory('geoUpdate', ["$q", function($q){
+angular.module('LocationModule')
+  .factory('$geoUpdate', ["$q", function($q){
     return { getLocation: function(){
       return $q((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(pos => {
@@ -9,6 +9,4 @@ angular.module('MainModule')
     })
   }
 }
-
-
-   }])
+}])

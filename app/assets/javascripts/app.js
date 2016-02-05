@@ -1,3 +1,3 @@
 "use strict";
 
-angular.module("MainModule", []);
+angular.module("MainModule", ["LocationModule"])
