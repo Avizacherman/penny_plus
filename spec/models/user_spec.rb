@@ -64,6 +64,7 @@ RSpec.describe User, type: :model do
       user = User.create({username: "Bob", password: "Imawinner", password_confirmation: "Imawinner", city: "New York", state: "NY", phone: "555-555-5555", first_name: "Bob", last_name: "Burgerski", email: "bob@burger.com"})
       expect(user.full_name).to eq "Bob Burgerski"
     end
-
   end
+
+
 end
