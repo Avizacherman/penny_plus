@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210193315) do
+ActiveRecord::Schema.define(version: 20160216204205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160210193315) do
 
   add_index "geodata", ["user_id"], name: "index_geodata_on_user_id", using: :btree
 
-  create_table "score_boards", force: :cascade do |t|
+  create_table "scoreboards", force: :cascade do |t|
     t.integer  "score",        limit: 8
     t.money    "total_payout",           scale: 2
     t.datetime "created_at",                       null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160210193315) do
     t.integer  "user_id"
   end
 
-  add_index "score_boards", ["user_id"], name: "index_score_boards_on_user_id", using: :btree
+  add_index "scoreboards", ["user_id"], name: "index_scoreboards_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -52,5 +52,5 @@ ActiveRecord::Schema.define(version: 20160210193315) do
   end
 
   add_foreign_key "geodata", "users"
-  add_foreign_key "score_boards", "users"
+  add_foreign_key "scoreboards", "users"
 end

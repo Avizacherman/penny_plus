@@ -14,15 +14,16 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
 
-  after_create :initialize_geodatum
 
-  has_one :scoreboard, as: :score
+
+  after_create :initialize_geodatum
+  after_create :initialize_score
+
+  has_one :scoreboard
   has_one :geodatum
   # store_accessor :location
 
-  def initialize_geodatum
-    self.build_geodatum({lat: 0, lng: 0})
-  end
+  include UserInits
 
   def full_name
     "#{self.first_name} #{self.last_name}"

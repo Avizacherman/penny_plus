@@ -11,5 +11,4 @@ $interval(()=>{
     $scope.lng = pos.coords.longitude
 })}, 500)
 
- // $interval()
 }])

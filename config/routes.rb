@@ -48,9 +48,9 @@ Rails.application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
-  resources :api do
+  namespace :api do
     resources :geodatum, only: [:create, :update]
-    resources :users
+    resources :user, default: :json
     resources :scoreboard, only: :index
   end
 
