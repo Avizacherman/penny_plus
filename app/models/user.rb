@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   include UserTokens
   has_secure_password
 
+
   validates :password, presence: true, length: {minimum: 8}
   validates :password, confirmation: true, on: :create
   validates :username, presence: true, uniqueness: true
@@ -14,14 +15,13 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
 
-
-
   after_create :initialize_geodatum
   after_create :initialize_score
 
   has_one :scoreboard
   has_one :geodatum
-  # store_accessor :location
+
+  acts_as_mappable through: :geodatum
 
   include UserInits
 

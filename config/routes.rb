@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :session, only: [:create, :destroy]
+
+  namespace :api do
+    resources :geodatum, only: [:create, :update]
+    resources :users, default: :json
+    resources :scoreboard, only: :index
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -48,11 +54,7 @@ Rails.application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
-  namespace :api do
-    resources :geodatum, only: [:create, :update]
-    resources :user, default: :json
-    resources :scoreboard, only: :index
-  end
+
 
   # Example resource route within a namespace:
   #   namespace :admin do

@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-
+# convert .es6 to .js and transpile
 gem 'sprockets-es6'
 
 #setup bower for front end dependencies
@@ -53,6 +53,8 @@ group :development, :test do
   gem 'factory_girl'
   gem 'capybara'
 
+  #faker for random names
+  gem 'faker'
 end
 
 group :development do

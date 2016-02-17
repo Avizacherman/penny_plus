@@ -70,6 +70,8 @@ GEM
     execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
+    faker (1.6.1)
+      i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     geokit (1.10.0)
@@ -206,6 +208,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.1.0)
   factory_girl
+  faker
   geokit-rails
   jbuilder (~> 2.0)
   oauth2
