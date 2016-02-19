@@ -22,6 +22,7 @@ RSpec.describe Api::UsersController, type: :controller do
 
     it "By default should respond with data within 1 mile of the users last known location" do
       get :index
+      puts response.body
       response_count = response.body.count
       expect(response_count).to eq 20
     end

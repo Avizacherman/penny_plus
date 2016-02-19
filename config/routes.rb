@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :geodatum, only: [:create, :update]
-    resources :users, default: :json
+    resources :users
     resources :scoreboard, only: :index
   end
   # Example of regular route:
