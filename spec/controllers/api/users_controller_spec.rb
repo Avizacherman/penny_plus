@@ -1,9 +1,11 @@
 require 'rails_helper'
-require 'api/users_controller'
 
-module Api
 
 RSpec.describe Api::UsersController, type: :controller do
+  render_views
+  
+  let :json do JSON.parse response.body end
+
   context "Index Route" do
     before :each do
       base_lat = Faker::Address.latitude.to_f
@@ -18,18 +20,19 @@ RSpec.describe Api::UsersController, type: :controller do
       end
 
       cookies.signed[:user_id] = User.first.id
+
+
     end
+
+
 
     it "By default should respond with data within 1 mile of the users last known location" do
       get :index
-      puts response.body
-      response_count = response.body.count
-      expect(response_count).to eq 20
+      expect(json["users"].count).to eq 20
     end
 
     it "Should allow for expansion of the radius if given a distance value" do
 
     end
   end
-end
 end
