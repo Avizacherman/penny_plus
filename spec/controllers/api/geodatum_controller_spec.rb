@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe Api::GeodatumController, type: :controller do
+RSpec.describe Api::GeodataController, type: :controller do
 
 end

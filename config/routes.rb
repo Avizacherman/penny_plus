@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :session, only: [:create, :destroy]
 
   namespace :api do
-    resources :geodatum, only: [:create, :update]
+    resource :geodata, only: [:create, :update]
     resources :users
     resources :scoreboard, only: :index
   end
