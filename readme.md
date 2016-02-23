@@ -8,7 +8,7 @@ Right now this is more of a project for me to implement a test-driven stack with
 
 ## Technologies
 
-Rails 4.2
-Angular 1.49
-Rspec
-ECMA2015
+- Rails 4.2
+- Angular 1.49
+- Rspec
+- ECMA2015
